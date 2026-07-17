@@ -1,3 +1,4 @@
+import os
 import flet as ft
 
 from app.api_client import api_client
