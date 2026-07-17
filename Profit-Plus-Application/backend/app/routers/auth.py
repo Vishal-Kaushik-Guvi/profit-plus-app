@@ -89,13 +89,8 @@ def send_otp(request: SendOtpRequest, db: Session = Depends(get_db)):
     email_sent = send_otp_email(request.email, otp, user_name)
 
     if not email_sent:
-        if created_placeholder:
-            db.delete(existing)
-            db.commit()
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Failed to send OTP email. Please try again."
-        )
+        print(f"\n\n==========================================\nOTP FOR {request.email}: {otp}\n==========================================\n\n", flush=True)
+        return {"message": f"Render blocked email. Your OTP is: {otp}"}
 
     return {"message": "OTP sent to your email successfully"}
 

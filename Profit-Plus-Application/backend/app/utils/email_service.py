@@ -40,14 +40,14 @@ def send_otp_email(to_email: str, otp: str, name: str = "there"):
     msg.attach(MIMEText(body, "html"))
 
     try:
-        with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT) as server:
+        with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT, timeout=3) as server:
             server.starttls()  # Secure the connection
             login_user = settings.SMTP_USERNAME or settings.SMTP_EMAIL
             server.login(login_user, settings.SMTP_PASSWORD)
             server.sendmail(settings.SMTP_EMAIL, to_email, msg.as_string())
         return True
     except Exception as e:
-        print(f"Failed to send email: {e}")
+        print(f"Failed to send email (Render likely blocking port 587): {e}")
         return False
 
 def send_bill_email(to_email: str, pdf_path: str, invoice_no: str, name: str = "Customer"):
