@@ -5,7 +5,7 @@ from pathlib import Path
 
 import requests
 
-BASE_URL = os.environ.get("API_BASE_URL", "http://127.0.0.1:8000")
+BASE_URL = os.environ.get("API_BASE_URL", "http://127.0.0.1:8000").strip().rstrip("/")
 TOKEN_FILE = Path(__file__).resolve().parents[1] / ".auth_token"
 REQUEST_TIMEOUT = 15
 CACHE_TTL_SECONDS = 3600
