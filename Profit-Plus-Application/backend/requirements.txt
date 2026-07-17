@@ -1,4 +1,4 @@
-# === Backend Dependencies ===
+# === Backend Only Dependencies ===
 fastapi==0.136.3
 uvicorn==0.48.0
 sqlalchemy==2.0.50
@@ -14,12 +14,6 @@ razorpay
 fpdf
 python-dotenv==1.2.2
 alembic==1.18.4
-
-# === Frontend Dependencies ===
-flet
-requests
-
-# === Transitive Dependencies ===
 annotated-types==0.7.0
 anyio==4.13.0
 click==8.4.1
