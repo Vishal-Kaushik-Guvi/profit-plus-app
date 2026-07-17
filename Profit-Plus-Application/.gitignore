@@ -1,0 +1,18 @@
+.env
+.env.*
+!.env.example
+venv/
+__pycache__/
+*.pyc
+
+# Database
+*.db
+*.sqlite3
+
+# Uploads & Generated files
+backend/uploads/
+backend/generated_pdfs/
+frontend/downloaded_pdfs/
+
+# Authentication
+.auth_token
